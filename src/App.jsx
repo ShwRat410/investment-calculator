@@ -18,7 +18,7 @@ function App() {
     setInputValue((prevInputValue)=>{
         return({
             ...prevInputValue,
-            [identifier]:newValue
+            [identifier]:+newValue
         })
     })
   }
