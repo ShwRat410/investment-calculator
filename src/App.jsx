@@ -10,9 +10,13 @@ const INITIAL_VALUES={
   duration:10
 }
 
+
 function App() {
   
   const[inputValue,setInputValue]=useState(INITIAL_VALUES);  
+
+  const inputIsValid = inputValue.duration>=1
+  console.log(inputIsValid)
 
   function handleInputValue(identifier,newValue){
     setInputValue((prevInputValue)=>{
@@ -27,7 +31,8 @@ function App() {
     <>
     <Header></Header>
     <UserInput onUserInput={handleInputValue} inputValue={inputValue}></UserInput>
-    <Result userInput={inputValue}></Result>
+    {!inputIsValid&&<p>Please enter a valid duration</p>}
+    {inputIsValid&&<Result userInput={inputValue}></Result>}
     </>
   )
 }
